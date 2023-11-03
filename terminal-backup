@@ -1,0 +1,92 @@
+#!/bin/bash
+R="\033[1;31m"
+G="\033[1;32m"
+Y="\033[1;33m"
+PU="\033[1;34m"
+PI="\033[1;35m"
+B="\033[1;36m"
+W="\033[1;37m"
+BL="\033[1;30m"
+red="\033[91m"
+green="\033[92m"
+yellow="\033[93m"
+purple="\033[94m"
+pink="\033[95m"
+blue="\033[96m"
+white="\033[97m"
+black="\033[90m"
+Gold="\e[38;5;220m"
+Pink="\e[38;5;206m"
+Purple="\e[38;5;93m"
+DarkGreen="\e[38;5;28m"
+Orange="\e[38;5;208m"
+SkyBlue="\e[38;5;111m"
+Teal="\e[38;5;37m"
+clear
+echo -e "\e[38;5;220m"
+echo -e "\t████████╗███████╗██████╗ ███╗   ███╗██╗   ██╗██╗  ██╗"
+echo -e "\t╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║   ██║╚██╗██╔╝"
+echo -e "\t   ██║   █████╗  ██████╔╝██╔████╔██║██║   ██║ ╚███╔╝"
+echo -e "\t   ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║   ██║ ██╔██╗"
+echo -e "\t   ██║   ███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝██╔╝ ██╗"
+echo -e "\t   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝"
+for ((i=1; i<=3; i++)) do 
+  echo 
+done
+echo -e "\t██████╗  █████╗  ██████╗██╗  ██╗██╗   ██╗██████╗"
+echo -e "\t██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██║   ██║██╔══██╗"
+echo -e "\t██████╔╝███████║██║     █████╔╝ ██║   ██║██████╔╝"
+echo -e "\t██╔══██╗██╔══██║██║     ██╔═██╗ ██║   ██║██╔═══╝"
+echo -e "\t██████╔╝██║  ██║╚██████╗██║  ██╗╚██████╔╝██║"                          
+echo -e "\t╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝"
+for ((i=1; i<=3; i++)) do 
+  echo 
+done
+    echo -e "\t\t${DarkGreen}Code ${white}By ${SkyBlue}Manjuanth"
+    printf "\n"
+    echo -e "\t\t${R}Version 1.O"
+  echo 
+  echo -e "\t${B}Choose ${Teal}The ${PI}Process:"
+echo
+echo -e "\t${Purple}[ ${W}1 ${Purple}] ${G}Backup"
+echo
+echo -e "\t${Purple}[ ${W}2 ${Purple}] ${Gold}Restore"
+echo
+echo -e "\t${Purple}[ ${W}3 ${Purple}] ${Pink}Exit"
+echo 
+echo -e "\033[92m"
+  read -p "|||]]────►" userinput
+  echo 
+  if [ -z "$userinput" ] || ! [[ "$userinput" =~ ^[0-9]+$ ]]; then
+    echo -e "\t${R}InvalidError : please Enter a valid 1) 2) 3) To use..."
+    fi
+  if [ "$userinput" == 1 ]; then
+    # Backup files code To Terminal and Save storage 
+    echo 
+  echo -e "${yellow}==============${G}Starting To Backup${yellow}================================" | pv -qL 20
+    sleep 0.3
+  echo -e "\033[1;32m"
+    cd $PREFIX/../../;tar -pczvf /sdcard/termux.backup.tar.gz files/;cd;
+    echo
+    echo -e "\t${pink}Backup ${G}Successful"
+
+  elif [ "$userinput" == 2 ]; then
+    #Restore Backup Files 
+    echo 
+    echo -e "${Y}===========================${green}Starting To Restore${Y}========================================="| pv -qL 20
+  echo
+    sleep 0.3
+    echo -e "\033[1;32m"
+    cd $PREFIX/../../;tar -xzvf /sdcard/termux.backup.tar.gz;cd;
+    echo 
+    echo -e "\t${Purple} Store Data ${G}Successful"
+    echo 
+      echo -e "\t ${G}Exit ${white}Terminal ${G}And ${G}Restart The Terminal"
+      echo 
+  elif [ "$userinput" == 3 ]; then
+    sleep 0.1
+    echo
+	echo
+      echo -e "${G}Exiting..." | pv -qL 40
+      exit 0
+fi
