@@ -29,11 +29,7 @@ git clone https://github.com/Dark-Legends/Terminal-backup
 ```
 
 ```bash
-cd Terminal-backup
-```
-
-```bash
-chmod +x terminal-backup
+cd Terminal-backup && chmod +x terminal-backup 
 ```
 
 ```bash
